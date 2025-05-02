@@ -2,7 +2,7 @@ pipeline {
     agent any  // Runs on any available agent
 
     environment {
-        DOCKER_IMAGE = "glassiz/simple-webpage"
+        DOCKER_IMAGE = "glassiz/comp314_templedocker"
         DOCKER_CREDENTIALS = "docker-hub-creds"  // Stored in Jenkins credentials
     }
 
