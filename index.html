@@ -1,46 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Grenada</title>
-    <link rel="stylesheet" href="sgustyle.css">
-    <style>
-        .header-image {
-            width: 100%;
-            height: 100%;
-			object-fit: cover;
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nutty World – All About Nuts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #fdf6f0;
+      color: #333;
+    }
+    header {
+      background: #8b5e3c;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      background: #d9c6a5;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    footer {
+      background: #8b5e3c;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    h1, h2 {
+      color: #5a3e2b;
+    }
+    .nut-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .nut-card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      width: calc(33% - 40px);
+    }
+  </style>
 </head>
-
 <body>
-    <img src="grenada-updated.jpeg" alt="Beautiful view of Grenada" class="header-image">
 
-    <h1 class="national-text">Welcome to Grenada</h1>
+<header>
+  <h1>Welcome to Nutty World!</h1>
+  <p>Your ultimate guide to everything about nuts</p>
+</header>
 
-    <button class="accordion">About Grenada</button>
-    <div class="panel">
-        <p>Grenada, known as the "Island of Spice," is a beautiful Caribbean country famous for its nutmeg and stunning beaches.</p>
-    </div>
+<nav>
+  <a href="#about">About</a>
+  <a href="#types">Types of Nuts</a>
+  <a href="#benefits">Health Benefits</a>
+  <a href="#recipes">Recipes</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <button class="accordion">Tourist Attractions</button>
-    <div class="panel">
-        <p>Visit Grand Anse Beach, Annandale Falls, and the historic Fort George for breathtaking views and cultural experiences.</p>
-    </div>
+<section id="about">
+  <h2>About</h2>
+  <p>Nutty World is dedicated to promoting the knowledge and enjoyment of nuts. From almonds to walnuts, we explore the wide variety of nuts, their health benefits, and delicious ways to enjoy them.</p>
+</section>
 
-    <button class="accordion">Culture & Cuisine</button>
-    <div class="panel">
-        <p>Grenada's cuisine is a mix of African, Indian, and European influences, with dishes like oil down, roti, and fresh seafood.</p>
+<section id="types">
+  <h2>Types of Nuts</h2>
+  <div class="nut-list">
+    <div class="nut-card">
+      <h3>Almonds</h3>
+      <p>Rich in vitamin E and healthy fats. Great for snacking or baking.</p>
     </div>
-	
-	<button class="accordion">Fixing the Bug</button>
-    <div class="panel">
-        <p>Here we illustrate a bug fix</p>
+    <div class="nut-card">
+      <h3>Walnuts</h3>
+      <p>High in omega-3 fatty acids. Perfect for salads and desserts.</p>
     </div>
-	<script src="sguscript.js"></script>
+    <div class="nut-card">
+      <h3>Cashews</h3>
+      <p>Sweet, creamy texture. Popular in curries and vegan cheese recipes.</p>
+    </div>
+    <div class="nut-card">
+      <h3>Pistachios</h3>
+      <p>Great for heart health. Fun to snack on and used in ice cream.</p>
+    </div>
+    <div class="nut-card">
+      <h3>Pecans</h3>
+      <p>Rich in antioxidants. A key ingredient in pecan pie.</p>
+    </div>
+    <div class="nut-card">
+      <h3>Macadamia</h3>
+      <p>Buttery and delicious. Often used in cookies and desserts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <h2>Health Benefits</h2>
+  <ul>
+    <li>High in protein and fiber</li>
+    <li>Good source of healthy fats</li>
+    <li>Helps lower cholesterol levels</li>
+    <li>Supports brain and heart health</li>
+    <li>Rich in vitamins and minerals</li>
+  </ul>
+</section>
+
+<section id="recipes">
+  <h2>Nut-Based Recipes</h2>
+  <ul>
+    <li><strong>Almond Butter Smoothie</strong> – A protein-packed drink to start your day.</li>
+    <li><strong>Walnut Pesto Pasta</strong> – A delicious alternative to traditional basil pesto.</li>
+    <li><strong>Cashew Cream Sauce</strong> – A vegan-friendly sauce for pasta or veggies.</li>
+    <li><strong>Pistachio Baklava</strong> – A Middle Eastern dessert layered with sweet nuts and honey.</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>We’d love to hear from you! Email us at <a href="mailto:info@nuttyworld.com">info@nuttyworld.com</a>.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Nutty World. All rights reserved.</p>
+</footer>
+
 </body>
-
-
 </html>

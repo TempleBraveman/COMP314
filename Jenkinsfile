@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'master', url: 'https://github.com/TempleBraveman/COMP314'
+                git branch: 'main', url: 'https://github.com/TempleBraveman/COMP314'
             }
         }
 
