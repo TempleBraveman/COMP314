@@ -1,35 +1,69 @@
 pipeline {
-    agent any
+    agent any  // Runs on any available agent
 
     environment {
-        IMAGE_NAME = 'your-dockerhub-username/simple-webpage'
+        DOCKER_IMAGE = "glassiz/simple-webpage"
+        DOCKER_CREDENTIALS = "docker-hub-creds"  // Stored in Jenkins credentials
     }
 
     stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'master', url: 'https://github.com/TempleBraveman/COMP314'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${IMAGE_NAME}")
+                    docker.build("${DOCKER_IMAGE}:latest")
                 }
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('Login to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    script {
-                        docker.withRegistry('', 'dockerhub-creds') {
-                            docker.image("${IMAGE_NAME}").push()
-                        }
+                script {
+                    docker.withRegistry('https://registry-1.docker.io/v2/', DOCKER_CREDENTIALS) {
+                        echo "You are logged in to Docker Hub"
                     }
                 }
             }
         }
 
-        stage('Run Container') {
+        stage('Push Image to Docker Hub') {
             steps {
-                sh "docker run -d -p 80:80 ${IMAGE_NAME}"
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS) {
+                        docker.image("${DOCKER_IMAGE}:latest").push()
+                    }
+                }
             }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                script {
+                    // Cleanup unused Docker images to free space
+                    sh "docker image prune -f"
+                    
+                    // Stop running container (if exists)
+                    sh "docker stop my-webpage-container || true"
+                    sh "docker rm my-webpage-container || true"
+
+                    // Run the new container
+                    sh "docker run -d --name my-webpage-container -p 80:80 ${DOCKER_IMAGE}:latest"
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Deployment Failed!'
         }
     }
 }
